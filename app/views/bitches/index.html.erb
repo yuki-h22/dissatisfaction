@@ -1,0 +1,22 @@
+<div class="top-page">
+  <div class="top-content">
+    <div class="top-content__title">
+      改善してほしいこと一覧
+      カテゴリー別
+      自分の発信
+    </div>
+  </div>
+  <div class="main-content">
+    <div class="main-content__top">
+      <% @bitches.each do |bitch| %>
+        <%= render partial: "bitch", locals: { bitch: bitch } %>
+      <% end %>
+    </div>
+    <div class="main-content__center"></div>
+    <div class="main-content__bottom"></div>
+  </div>
+  <div class="bottom-content">
+  </div>
+
+
+</div>
