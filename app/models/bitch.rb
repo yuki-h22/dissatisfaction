@@ -1,0 +1,2 @@
+class Bitch < ApplicationRecord
+end
