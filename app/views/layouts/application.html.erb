@@ -17,7 +17,12 @@
           <div class="user_name grid">
             <span><%= current_user.name%>
               <ul class="user_info">
-                <li></li>
+                <li>
+                  <%= link_to "投稿する", new_bitch_path, class: "top_btn" %>
+                </li>
+                <li>
+                  <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "top_btn" %>
+                </li>
               </ul>
             </span>
           </div>
