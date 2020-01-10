@@ -1,7 +1,12 @@
 class BitchesController < ApplicationController
+  before_action :authenticate_user!, expect: [:index]
 
   def index
     @bitches = Bitch.all
+  end
+
+  def new
+    @bitch = Bitch.new
   end
 
   def create
@@ -17,5 +22,6 @@ class BitchesController < ApplicationController
   def bitch_params
     params.require(:bitch).permit(:comment)
   end
+
 
 end
