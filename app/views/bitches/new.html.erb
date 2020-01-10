@@ -1,0 +1,14 @@
+<h3>投稿する</h3>
+<div>
+  <%= form_with(model: @bitch, local: true) do |f| %>
+  <div class="field">
+    <%= f.label :内容 %>
+    <% if @maxmum_comment_length %>
+    <em>(<%= @maxmum_comment_length %> 文字以下)</em><br />
+    <% end %>
+  </div>
+  <div>
+    <%= f.text_area :comment, autofocus: true, placeholder: "例：〇〇が困る      先日〇〇をするために△△へ行った時にxxに困りました。もっと□□してくれれば助かるのになぁ。" %>
+  </div>
+  <% end %>
+</div>
