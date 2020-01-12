@@ -1,0 +1,10 @@
+.header{
+  &_bar{
+    display: flex;
+    justify-content: space-around;
+    &_title{
+      background-color: #eee;
+      line-height: 60px;
+    }
+  }
+}
