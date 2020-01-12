@@ -1,11 +1,20 @@
-<div class = "content">
-  <div class = "content__name">
-    <%= bitch.user.name %>
+<div class="content">
+  <div class="content__top">
+    <div class = "content__top__name">
+      <%= bitch.user.name %>
+    </div>
+    <% if bitch.user.id == current_user.id %>
+      <div class="content__top__delete-btn">
+        <%= link_to bitch_path(bitch), class: "delete", method: :delete do %>
+          <%= image_tag "trush.png", class: "delete-btn" %>
+        <% end %>
+      </div>
+    <% end %>
   </div>
   <div class = "content__comment">
     <%= bitch.comment %>
   </div>
-  <div class="buttons_<%= bitch.id %>"><%= render partial: "empathy", locals: {bitch: bitch} %>
+  <div class="buttons_<%= bitch.id %>"><%#= render partial: "empathy", locals: {bitch: bitch} %></div>
   <div>
     共感数：<%= @empathy_count %>
   </div>
