@@ -1,3 +1,50 @@
-// Place all the styles related to the bitches controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.top-content{
+  width: 100%;
+  background-color: #eee;
+  &__title{
+    &__lists{
+    }
+    &__list{
+      display: inline-block;
+      background-color: #B0C6B3;
+      width: 32%;
+      justify-content: space-around;
+    }
+  }
+}
+
+.main-content{
+  &__list{
+    margin: 0 auto;
+    display: flex;
+    width: 80%;
+    flex-wrap: wrap;
+  }
+}
+
+.content{
+  margin: 10px 20px;
+  padding: 10px;
+  width: 200px;
+  height: 200px;
+  background-color: #E8FFEB;
+  border-radius: 10%;
+  border: ridge;
+  &__top{
+    display: flex;
+    position: relative;
+    &__name{
+      color: #333333;
+    }
+    &__delete-btn{
+      position: absolute;
+      right: 10px;
+      &__text{
+        .delete{
+          border-style: none;
+          height: 20px;
+        }
+      }
+    }
+  }
+}
