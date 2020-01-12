@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_08_053733) do
+ActiveRecord::Schema.define(version: 2020_01_12_040317) do
 
   create_table "bitches", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "comment"
@@ -22,11 +22,10 @@ ActiveRecord::Schema.define(version: 2020_01_08_053733) do
   end
 
   create_table "empathies", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "bitches_id"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["bitches_id"], name: "index_empathies_on_bitches_id"
+    t.bigint "bitch_id"
     t.index ["user_id"], name: "index_empathies_on_user_id"
   end
 
