@@ -14,6 +14,10 @@ class BitchesController < ApplicationController
     Bitch.create(bitch_params)
   end
 
+  def empathy
+    
+  end
+
   def destroy
     if @bitch.destroy
       redirect_to root_path
