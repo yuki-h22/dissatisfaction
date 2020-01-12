@@ -1,19 +1,25 @@
 <div class="top-page">
   <div class="top-content">
     <div class="top-content__title">
-      改善してほしいこと一覧
-      カテゴリー別
-      自分の発信
+      <ul class="top-content__title__lists">
+        <li class="top-content__title__list">
+          Share一覧
+        </li>
+        <li class="top-content__title__list">
+          カテゴリー別
+        </li>
+        <li class="top-content__title__list">
+          自分の発信
+        </li>
+      </ul>
     </div>
   </div>
   <div class="main-content">
-    <div class="main-content__top">
+    <div class="main-content__list">
       <% @bitches.each do |bitch| %>
         <%= render partial: "bitch", locals: { bitch: bitch } %>
       <% end %>
     </div>
-    <div class="main-content__center"></div>
-    <div class="main-content__bottom"></div>
   </div>
   <div class="bottom-content">
   </div>
