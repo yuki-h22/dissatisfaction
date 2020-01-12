@@ -5,4 +5,9 @@
   <div class = "content__comment">
     <%= bitch.comment %>
   </div>
+  <%= form_with(model: @empathy, local: true) do |f| %>
+    <div>
+      <%= f.submit value: "ほんまそれ", action: "empathy"%>
+    </div>
+  <% end %>
 </div>
