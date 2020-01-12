@@ -13,6 +13,7 @@ class BitchesController < ApplicationController
 
   def create
     Bitch.create(bitch_params)
+    redirect_to root_path
   end
 
   def empathy_create
@@ -45,7 +46,7 @@ class BitchesController < ApplicationController
   end
 
   def bitch_params
-    params.require(:bitch).permit(:comment).marge(user_id: current_user.id)
+    params.require(:bitch).permit(:comment).merge(user_id: current_user.id)
   end
 
 end
