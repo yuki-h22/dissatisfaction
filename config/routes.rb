@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   root "bitches#index"
 
   resources :bitches
+  post '/bitches', to: 'bitches#empathy'
 end
