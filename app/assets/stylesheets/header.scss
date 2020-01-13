@@ -1,10 +1,16 @@
 .header{
-  &_bar{
+  &__bar{
     display: flex;
     justify-content: space-around;
-    &_title{
+    &__title{
       background-color: #eee;
       line-height: 60px;
+      &__text{
+      }
     }
   }
+}
+
+.border-none{
+  text-decoration: none;
 }

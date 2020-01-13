@@ -12,17 +12,21 @@
 
   <body>
     <header class="header">
-      <div class="header_bar">
-        <h2 class="header_bar_title">SYW</h2>
+      <div class="header__bar">
+        <h2 class="header__bar__title">
+        <%= link_to root_path, class:"header__bar__title__text border-none" do %>
+          SYW
+        <% end %>
+        </h2>
         <% if user_signed_in? %>
-          <div class="user_name grid">
+          <div class="user__name grid">
             <span><%= current_user.name%>
-              <ul class="user_info">
+              <ul class="user__info">
                 <li>
-                  <%= link_to "投稿する", new_bitch_path, class: "top_btn" %>
+                  <%= link_to "投稿する", new_bitch_path, class: "top-btn" %>
                 </li>
                 <li>
-                  <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "top_btn" %>
+                  <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "top-btn" %>
                 </li>
               </ul>
             </span>
