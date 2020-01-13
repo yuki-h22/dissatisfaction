@@ -5,17 +5,22 @@
     </div>
     <% if bitch.user.id == current_user.id %>
       <div class="content__top__delete-btn">
-        <%= link_to bitch_path(bitch), class: "delete", method: :delete do %>
+        <%= link_to bitch_path(bitch), class: "delete border-none", method: :delete do %>
           <%= image_tag "trush.png", class: "delete-btn", size: "15x15"%>
           削除
         <% end %>
       </div>
     <% end %>
   </div>
-  <div class = "content__comment">
-  <%= link_to bitch_path(bitch) do %>
-    <%= bitch.comment %>
-  <% end %>
+  <div class="content__comment">
+    <div class="content__comment__link">
+      <%= link_to bitch_path(bitch), class: "border-none" do %>
+        続きを読む
+      <% end %>
+    </div>
+    <div class="content__comment__text">
+      <%= bitch.comment %>
+    </div>
   </div>
   <div>
     共感数：<%= @empathy_count %>
