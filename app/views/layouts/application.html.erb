@@ -10,7 +10,7 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body class="body">
     <header class="header">
       <div class="header__bar">
         <h2 class="header__bar__title">
@@ -18,10 +18,10 @@
           SYW
         <% end %>
         </h2>
-        <% if user_signed_in? %>
+         <% if user_signed_in? %>
           <div class="user__name grid">
             <span><%= current_user.name%>
-              <ul class="user__info">
+              <ul class="user__name__info">
                 <li>
                   <%= link_to "投稿する", new_bitch_path, class: "top-btn border-none" %>
                 </li>
@@ -32,16 +32,22 @@
             </span>
           </div>
         <% else %>
-        <div class="grid">
-          <%= link_to "ログイン", new_user_session_path, class: "top_btn border-none" %>
-          <%= link_to "新規登録", new_user_registration_path, class: "top_btn border-none" %>
-        </div>
+          <div class="grid">
+            <%= link_to "ログイン", new_user_session_path, class: "top_btn border-none" %>
+            <%= link_to "新規登録", new_user_registration_path, class: "top_btn border-none" %>
+          </div>
         <% end %>
-        <div class="description border-none">
-          <a>このアプリについて</a>
-        </div>
       </div>
     </header>
     <%= yield %>
+    <footer class="footer">
+      <div>
+        <div class="descriotion">
+          <div class="description__title border-none">
+            <a>このアプリについて</a>
+          </div>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
