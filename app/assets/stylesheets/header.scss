@@ -34,13 +34,10 @@ $head: #8083FF;
   }
 }
 
-.user__name{
-  &__info{
-    list-style: none;
-    display: flex;
-  }
+.grid-p{
+  position: relative;
+  z-index: ;
 }
-
 .description{
   position: relative;
   &__title{
