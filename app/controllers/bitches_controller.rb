@@ -22,6 +22,8 @@ class BitchesController < ApplicationController
   end
 
   def destroy
+    bitch = Bitch.find(params[:id])
+    bitch.destroy
     if bitch.destroy
       redirect_to root_path
     else
