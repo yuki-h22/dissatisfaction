@@ -1,4 +1,4 @@
-<div class="content">
+<div class="content", id="content">
   <div class="content__top">
     <div class = "content__top__name">
       <%= bitch.user.name %>
@@ -13,16 +13,18 @@
     <% end %>
   </div>
   <div class="content__comment">
-    <div class="content__comment__link">
-      <%= link_to bitch_path(bitch), class: "border-none" do %>
-        続きを読む
-      <% end %>
-    </div>
     <div class="content__comment__text">
       <%= bitch.comment %>
     </div>
   </div>
-  <div>
-    共感数：<%= @empathy_count %>
+  <div class="content__comment__list">
+    <div class="content__comment__list__count">
+      共感数：<%= @empathy_count %>
+    </div>
+    <div class="content__comment__list__link">
+      <%= link_to bitch_path(bitch), class: "border-none" do %>
+        >>> more
+      <% end %>
+    </div>
   </div>
 </div>
