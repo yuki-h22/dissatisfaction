@@ -19,22 +19,28 @@
         <% end %>
         </h2>
          <% if user_signed_in? %>
-          <div class="user__name grid">
-            <span><%= current_user.name%>
-              <ul class="user__name__info">
-                <li>
-                  <%= link_to "投稿する", new_bitch_path, class: "top-btn border-none" %>
-                </li>
-                <li>
-                  <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "top-btn border-none" %>
-                </li>
-              </ul>
-            </span>
+          <div class="header__user grid-p">
+            <div class="header__user__name grid-c">
+              <%= current_user.name%>
+            </div>
+            <ul class="header__user__info">
+              <li class="header__user__info__list grid-c">
+                <%= link_to "投稿する", new_bitch_path, class: "top-btn border-none" %>
+              </li>
+              <li class="header__user__info__list grid-c">
+                <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "top-btn border-none" %>
+              </li>
+            </ul>
           </div>
         <% else %>
-          <div class="grid">
-            <%= link_to "ログイン", new_user_session_path, class: "top_btn border-none" %>
-            <%= link_to "新規登録", new_user_registration_path, class: "top_btn border-none" %>
+          <div class="header__guest grid-p">
+            <ul>
+              <li class="header__guest__list grid-c">
+                <%= link_to "ログイン", new_user_session_path, class: "top_btn border-none" %>
+              </li>
+              <li class="header__guest__list grid-c">
+                <%= link_to "新規登録", new_user_registration_path, class: "top_btn border-none" %>
+              <li>
           </div>
         <% end %>
       </div>
