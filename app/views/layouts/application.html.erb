@@ -11,56 +11,64 @@
   </head>
 
   <body class="body">
-    <header class="header">
-      <div class="header__bar">
-        <h2 class="header__bar__title">
-        <%= link_to root_path, class:"header__bar__title__text border-none" do %>
-          SYW
-        <% end %>
-        </h2>
-        <div class="wrap">
-          <div class="wrap__in">
-        <% if user_signed_in? %>
-          <div class="header__bar__user grid-p">
-            <div class="header__bar__user__name grid-c">
-              <%= current_user.name%>
+    <div class="back-g-image">
+      <header class="header">
+        <div class="header__bar">
+          <h2 class="header__bar__title">
+          <%= link_to root_path, class:"header__bar__title__text border-none" do %>
+            SYW
+          <% end %>
+          </h2>
+          <div class="wrap">
+            <div class="wrap__in">
+          <% if user_signed_in? %>
+            <div class="header__bar__user grid-p">
+              <div class="btn-trans">
+                <div class="header__bar__user__name grid-c">
+                  <%= current_user.name%>
+                </div>
+              </div>
+              <ul class="header__bar__user__info">
+                <%= link_to new_bitch_path, class: "top-btn border-none btn-trans" do %>
+                <li class="header__bar__user__info__list grid-c">
+                  新しく貼る
+                </li>
+                <% end %>
+                <%= link_to destroy_user_session_path, method: :delete, class: "top-btn border-none btn-trans" do %>
+                <li class="header__bar__user__info__list grid-c">
+                  ログアウト
+                </li>
+                <% end %>
+              </ul>
             </div>
-            <ul class="header__bar__user__info">
-              <%= link_to new_bitch_path, class: "top-btn border-none" do %>
-              <li class="header__bar__user__info__list grid-c">
-                投稿する
-              </li>
-              <% end %>
-              <%= link_to destroy_user_session_path, method: :delete, class: "top-btn border-none" do %>
-              <li class="header__bar__user__info__list grid-c">
-                ログアウト
-              </li>
-              <% end %>
-            </ul>
-          </div>
-        <% else %>
-          <div class="header__guest grid-p">
-            <ul>
-              <li class="header__guest__list grid-c">
-                <%= link_to "ログイン", new_user_session_path, class: "top_btn border-none" %>
-              </li>
-              <li class="header__guest__list grid-c">
-                <%= link_to "新規登録", new_user_registration_path, class: "top_btn border-none" %>
-              <li>
-          </div>
-        <% end %>
-        </div>
-      </div>
-    </header>
-    <%= yield %>
-    <footer class="footer">
-      <div>
-        <div class="descriotion">
-          <div class="description__title border-none">
-            <a>このアプリについて</a>
+          <% else %>
+            <div class="header__bar__user grid-p">
+              <ul>
+                <%= link_to new_user_session_path, class: "top_btn border-none btn-trans" do %>
+                <li class="header__bar__user__info grid-c">
+                  ログイン
+                </li>
+                <% end %>
+                <%= link_to new_user_registration_path, class: "top_btn border-none btn-trans" do %>
+                <li class="header__guest__list grid-c">
+                  新規登録
+                <li>
+                <% end %>
+            </div>
+          <% end %>
           </div>
         </div>
-      </div>
-    </footer>
+      </header>
+      <%= yield %>
+      <footer class="footer">
+        <div>
+          <div class="descriotion">
+            <div class="description__title border-none">
+              <a>このアプリについて</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
   </body>
 </html>
