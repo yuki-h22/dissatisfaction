@@ -27,12 +27,11 @@
   </div>
   <div class="show__user">
     <div class="show__user__title">
-      <%= @bitch.user.name %>さんのページへ
+      <%= link_to user_path(@bitch.user.id), class: "list-link" do %>
+        <%= @bitch.user.name %>さんのページへ
+      <% end %>
     </div>
     <div class="show__user__items">
-      <%= link_to user_path(@bitch.user.id) do %>
-        already_empathied
-      <% end %>
     </div>
   </div>
 </div>
