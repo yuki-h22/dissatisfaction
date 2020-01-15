@@ -4,13 +4,12 @@ class BitchesController < ApplicationController
   def index
     @bitches = Bitch.all.order("created_at DESC").page(params[:page]).per(12)
     @empathy = Empathy.new
-    @empathy_count = Empathy.where(bitch_id: @bitch.id).count
     if current_user.sort_status == 1
       @bitches = Bitch.all.order("created_at").page(params[:page]).per(12)
     elsif current_user.sort_status == 2
-      @bitches = Bitch.find(Empathy.group(bitch_id).order("count(bitch_id) DESC").page(params[:page]).per(12))
+      @bitches = Bitch.all.order("score DESC").page(params[:page]).per(12)
     elsif current_user.sort_status == 3
-      @bitches = Bitch.find(Empathy.group(bitch_id).order("count(bitch_id)").page(params[:page]).per(12))
+      @bitches = Bitch.all.order("score").page(params[:page]).per(12)
     else
     end
   end
