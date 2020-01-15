@@ -7,7 +7,11 @@ Rails.application.routes.draw do
   resources :users
   resources :bitches do
     resources :empathies, only: [:create, :destroy]
+    member do
+      get "change0", to: 'bitches#change0'
+      get "change1", to: 'bitches#change1'
+      get "change2", to: 'bitches#change2'
+      get "change3", to: 'bitches#change3'
+    end
   end
-  # post 'empathies/:bitch_id/create', to: 'bitches#empathy_create', constraints: {bitch_id: /\d+/}, as: :empathy_create
-  # post 'empathies/:bitch_id/delete', to: 'bitches#empathy_delete', constraints: {bitch_id: /\d+/}, as: :empathy_delete
 end
