@@ -23,11 +23,13 @@
             <div class="wrap__in">
           <% if user_signed_in? %>
             <div class="header__bar__user grid-p">
-              <div class="btn-trans">
-                <div class="header__bar__user__name grid-c">
-                  <%= current_user.name%>
+              <%= link_to user_path(current_user), class: "list-link" do %>
+                <div class="btn-trans">
+                  <div class="header__bar__user__name grid-c">
+                    <%= current_user.name%>
+                  </div>
                 </div>
-              </div>
+              <% end %>
               <ul class="header__bar__user__info">
                 <%= link_to new_bitch_path, class: "top-btn border-none btn-trans" do %>
                 <li class="header__bar__user__info__list grid-c">
