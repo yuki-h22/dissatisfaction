@@ -68,6 +68,14 @@ $content: #d3d0e3;
 .list-link {
   width: 20%;
 }
+
+.bottom-content {
+  &__paginate {
+    width: 70%;
+    margin: 0 auto;
+  }
+}
+
 //    <------    _bitch.html.erb    ------>
 
 .content {
