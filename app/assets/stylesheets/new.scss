@@ -1,0 +1,71 @@
+$list: #d3d0e3;
+$list_s: rgb(192, 184, 235);
+
+.new-page {
+  width: 60%;
+  margin: 0 auto;
+  &__main {
+    &__title {
+      width: 400px;
+      margin: 0 auto;
+    }
+    &__content {
+      width: 400px;
+      font-size: 0.9em;
+      margin: 1em auto;
+      padding: 1em;
+      position: relative;
+      background: linear-gradient(
+        to bottom,
+        $list 0%,
+        $list_s 0%,
+        $list_s 0.5%,
+        $list_s 22%,
+        $list 25%
+      );
+      &__name {
+        font-size: 25px;
+        margin-left: 50px;
+        margin-bottom: 5px;
+        margin-top: 10px;
+      }
+      &__text {
+        margin: 0 auto;
+        width: 300px;
+        height: 300px;
+        margin-bottom: 10px;
+      }
+      &__btn {
+        width: 50px;
+        margin: 0 auto;
+      }
+    }
+    &__content::after {
+      content: "";
+      display: block;
+      position: absolute;
+      z-index: -1;
+      bottom: 5px;
+      right: 0px;
+      height: 281px;
+      width: 99%;
+      background: rgba(0, 0, 0, 0.3);
+      box-shadow: 0 7px 5px rgba(0, 0, 0, 0.3);
+    }
+  }
+}
+
+.new-comment {
+  resize: none;
+  width: 300px;
+  height: 300px;
+  border: none;
+  background-color: rgba(252, 252, 252, 0);
+  font-size: 15px;
+}
+
+.new-submit {
+  border: none;
+  background-color: rgba(192, 184, 235, 0.5);
+  border-radius: 3px;
+}
