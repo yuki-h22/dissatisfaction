@@ -1,17 +1,24 @@
-<h3>投稿する</h3>
-<div>
-  <%= form_with(model: @bitch, local: true) do |f| %>
-    <div class="field">
+<div class="new-page">
+  <div class="new-page__main">
+    <%= form_with(model: @bitch, local: true) do |f| %>
+    <div class="new-page__main__title">
+      <h3>新しく貼る</h3>
       <%= f.label :内容 %>
-      <% if @maxmum_comment_length %>
-      <em>(<%= @maxmum_comment_length %> 文字以下)</em><br />
-      <% end %>
+      (４００文字以下)<br/>
     </div>
-    <div>
-      <%= f.text_area :comment, autofocus: true, placeholder: "例：〇〇が困る      先日〇〇をするために△△へ行った時にxxに困りました。もっと□□してくれれば助かるのになぁ。" %>
+    <div class="grid-p">
+      <div class="new-page__main__content">
+        <div class="new-page__main__content__name">
+          <%= current_user.name%>
+        </div>
+        <div class="new-page__main__content__text">
+          <%= f.text_area :comment, class: "new-comment", autofocus: true, placeholder: "例：〇〇が困る      先日〇〇をするために△△へ行った時にxxに困りました。もっと□□してくれれば助かるのになぁ。" %>
+        </div>
+        <div class="new-page__main__content__btn">
+          <%= f.submit value: "貼る", class: "new-submit"%>
+        </div>
+      </div>
     </div>
-    <div>
-      <%= f.submit value: "送信"%>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>
