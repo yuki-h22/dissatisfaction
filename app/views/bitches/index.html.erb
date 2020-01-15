@@ -2,30 +2,61 @@
   <div class="top-content">
     <div class="top-content__title">
       <ul class="top-content__title__lists">
+        <%= link_to root_path, class: "list-link" do %>
         <li class="top-content__title__list">
           <div class="top-content__title__list__text">
             Share一覧
           </div>
         </li>
+        <% end %>
+      <% if current_user.sort_status == 1%>
+        <%= link_to change0_bitch_path(@bitches), class: "list-link" do %>
         <li class="top-content__title__list">
           <div class="top-content__title__list__text">
             新着順
           </div>
         </li>
+        <% end %>
+      <% else %>
+        <%= link_to change1_bitch_path(@bitches), class: "list-link" do %>
+        <li class="top-content__title__list">
+          <div class="top-content__title__list__text">
+            古い順
+          </div>
+        </li>
+        <% end %>
+      <% end %>
+      <% if current_user.sort_status == 2 %>
+        <%= link_to change3_bitch_path(@bitches), class: "list-link" do %>
+        <li class="top-content__title__list">
+          <div class="top-content__title__list__text">
+            少ない順
+          </div>
+        </li>
+        <% end %>
+      <% else %>
+        <%= link_to change2_bitch_path(@bitches), class: "list-link" do %>
         <li class="top-content__title__list">
           <div class="top-content__title__list__text">
             多い順
           </div>
         </li>
+        <% end %>
+      <% end %>
+        <%= link_to user_path(current_user), class: "list-link" do %>
         <li class="top-content__title__list">
           <div class="top-content__title__list__text">
             自分の発信
           </div>
         </li>
+        <% end %>
       </ul>
     </div>
   </div>
   <div class="main-content">
+  <% @empathies.each do |emp|%>
+    <%= emp %>
+  <% end %>
     <div class="main-content__list">
       <% @bitches.each do |bitch| %>
         <%= render partial: "bitch", locals: { bitch: bitch } %>
