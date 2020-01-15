@@ -9,19 +9,19 @@
           </div>
         </li>
         <% end %>
-      <% if current_user.sort_status == 1%>
-        <%= link_to change0_bitch_path(@bitches), class: "list-link" do %>
-        <li class="top-content__title__list">
-          <div class="top-content__title__list__text">
-            新着順
-          </div>
-        </li>
-        <% end %>
-      <% else %>
+      <% if current_user.sort_status == 0%>
         <%= link_to change1_bitch_path(@bitches), class: "list-link" do %>
         <li class="top-content__title__list">
           <div class="top-content__title__list__text">
             古い順
+          </div>
+        </li>
+        <% end %>
+      <% else %>
+        <%= link_to change0_bitch_path(@bitches), class: "list-link" do %>
+        <li class="top-content__title__list">
+          <div class="top-content__title__list__text">
+            新着順
           </div>
         </li>
         <% end %>
@@ -54,9 +54,6 @@
     </div>
   </div>
   <div class="main-content">
-  <% @empathies.each do |emp|%>
-    <%= emp %>
-  <% end %>
     <div class="main-content__list">
       <% @bitches.each do |bitch| %>
         <%= render partial: "bitch", locals: { bitch: bitch } %>
@@ -64,5 +61,8 @@
     </div>
   </div>
   <div class="bottom-content">
+    <div class="bottom-content__paginate">
+      <%= paginate(@bitches)%>
+    </div>
   </div>
 </div>
