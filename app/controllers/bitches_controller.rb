@@ -2,9 +2,17 @@ class BitchesController < ApplicationController
   before_action :authenticate_user!, expect: [:index]
 
   def index
-    @bitches = Bitch.all
+    @bitches = Bitch.all.order("created_at DESC").page(params[:page]).per(12)
     @empathy = Empathy.new
-    @empathy_count = Empathy.where(bitch_id: params[:bitch_id]).count
+    @empathy_count = Empathy.where(bitch_id: @bitch.id).count
+    if current_user.sort_status == 1
+      @bitches = Bitch.all.order("created_at").page(params[:page]).per(12)
+    elsif current_user.sort_status == 2
+      @bitches = Bitch.find(Empathy.group(bitch_id).order("count(bitch_id) DESC").page(params[:page]).per(12))
+    elsif current_user.sort_status == 3
+      @bitches = Bitch.find(Empathy.group(bitch_id).order("count(bitch_id)").page(params[:page]).per(12))
+    else
+    end
   end
 
   def new
@@ -30,6 +38,28 @@ class BitchesController < ApplicationController
       redirect_to root_path
     end
   end
+
+  def change0
+    current_user.update_attribute(:sort_status, "0")
+    redirect_to root_path
+  end
+
+  def change1
+    current_user.update_attribute(:sort_status, "1")
+    redirect_to root_path
+  end
+
+  def change2
+    current_user.update_attribute(:sort_status, "2")
+    redirect_to root_path
+  end
+
+  def change3
+    current_user.update_attribute(:sort_status, "3")
+    redirect_to root_path
+  end
+
+
   private
 
   def set_bitch
