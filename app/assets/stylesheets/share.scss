@@ -18,7 +18,7 @@ $head: #8083ff;
 }
 .back-g-image::before {
   content: "";
-  background-image: url(bgi1.jpg);
+  background: image-url("bgi1.jpg");
   background-size: cover;
   background-attachment: fixed;
   opacity: 0.8;
