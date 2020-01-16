@@ -2,14 +2,32 @@
 <html>
   <head>
     <title>Dissatisfaction</title>
+    <meta name="description", content="I want to share my worries.Or share your worries.">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
-  <body>
-    <%= yield %>
+  <body class="body">
+    <div class="back-g-image overflow">
+      <header class="header">
+        <div class="header__bar">
+          <h2 class="header__bar__title">
+            <%= link_to root_path, class:"header__bar__title__text border-none" do %>
+              SYW
+            <% end %>
+          </h2>
+        </div>
+      </header>
+      <%= yield %>
+      <footer class="footer">
+        <div>
+          <div class="descriotion">
+            <div class="description__title border-none">
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
   </body>
 </html>

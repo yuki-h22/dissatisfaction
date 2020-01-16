@@ -1,0 +1,15 @@
+<div class="new-page__main__title">
+  <h3><%= @user.name%>のMemo一覧</h3>
+</div>
+<div class="main-content">
+  <div class="main-content__list">
+    <% @bitches.each do |bitch| %>
+      <%= render partial: "bitches/bitch", locals: { bitch: bitch } %>
+    <% end %>
+  </div>
+</div>
+<div class="bottom-content">
+  <div class="bottom-content__paginate">
+    <%= paginate(@bitches)%>
+  </div>
+</div>

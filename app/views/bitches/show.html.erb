@@ -1,0 +1,37 @@
+<div class="show">
+  <div class="show__content">
+    <div class="show__content__top">
+      <div class="show__content__top__name">
+        投稿者：<%= @bitch.user.name %>
+      </div>
+      <div class="show__content__top__delete">
+        <% if @bitch.user.id == current_user.id %>
+          <%= link_to bitch_path(@bitch), class: "delete border-none", method: :delete do %>
+            <%= image_tag "trush.png", class: "delete-btn", size: "15x15"%>
+            削除
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+    <div class="show__content__main">
+      <p class="word-break"><%= @bitch.comment %></p>
+    </div>
+  </div>
+
+  <div class="show__empathy">
+    <% if current_user.already_empathied?(@bitch) %>
+      <%= button_to 'いいねを取り消す', bitch_empathy_path(@bitch), method: :delete %>
+    <% else %>
+      <%= button_to 'いいね', bitch_empathies_path(@bitch) %>
+    <% end %>
+  </div>
+  <div class="show__user">
+    <div class="show__user__title">
+      <%= link_to user_path(@bitch.user.id), class: "list-link" do %>
+        <%= @bitch.user.name %>さんのページへ
+      <% end %>
+    </div>
+    <div class="show__user__items">
+    </div>
+  </div>
+</div>

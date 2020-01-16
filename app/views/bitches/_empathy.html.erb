@@ -1,0 +1,21 @@
+<% if user_signed_in? %>
+  <% if bitch.empathy_user(current_user.id) %>
+    <%= link_to bitch_empathy_path(empathy, bitch_id: bitch.id), method: :delete, id: "empathy-button_<%= bitch.id %>", remote: true do %>
+      共感した
+      <span>
+        <%= bitch.empathy_count %>
+      </span>
+    <% end %>
+  <% else %>
+    <%= link_to bitch_empathys_path(bitch), id: "empathy-button_<%= bitch.id %>", remote: true do %>
+      共感
+      <span>
+        <%= bitch.empathy_count %>
+      </span>
+    <% end %>
+  <% end %>
+<% else %>
+  <span>
+    <%= bitch.empathy_count %>
+  </span>
+<% end %>

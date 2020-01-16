@@ -2,41 +2,74 @@
 <html>
   <head>
     <title>Dissatisfaction</title>
+    <meta name="description", content="I want to share my worries.Or share your worries.">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <header class="header">
-      <div class="header_bar">
-        <h2 class="header_bar_title">他力本願！！</h2>
-        <% if user_signed_in? %>
-          <div class="user_name grid">
-            <span><%= current_user.name%>
-              <ul class="user_info">
-                <li>
-                  <%= link_to "投稿する", new_bitch_path, class: "top_btn" %>
+  <body class="body">
+    <div class="back-g-image">
+      <header class="header">
+        <div class="header__bar">
+          <h2 class="header__bar__title">
+          <%= link_to root_path, class:"header__bar__title__text border-none" do %>
+            SYW
+          <% end %>
+          </h2>
+          <div class="wrap">
+            <div class="wrap__in">
+          <% if user_signed_in? %>
+            <div class="header__bar__user grid-p">
+              <%= link_to user_path(current_user), class: "list-link" do %>
+                <div class="btn-trans">
+                  <div class="header__bar__user__name grid-c">
+                    <%= current_user.name%>
+                  </div>
+                </div>
+              <% end %>
+              <ul class="header__bar__user__info">
+                <%= link_to new_bitch_path, class: "top-btn border-none btn-trans" do %>
+                <li class="header__bar__user__info__list grid-c">
+                  新しく貼る
                 </li>
-                <li>
-                  <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "top_btn" %>
+                <% end %>
+                <%= link_to destroy_user_session_path, method: :delete, class: "top-btn border-none btn-trans" do %>
+                <li class="header__bar__user__info__list grid-c">
+                  ログアウト
                 </li>
+                <% end %>
               </ul>
-            </span>
+            </div>
+          <% else %>
+            <div class="header__bar__user grid-p">
+              <ul>
+                <%= link_to new_user_session_path, class: "top_btn border-none btn-trans" do %>
+                <li class="header__bar__user__info grid-c">
+                  ログイン
+                </li>
+                <% end %>
+                <%= link_to new_user_registration_path, class: "top_btn border-none btn-trans" do %>
+                <li class="header__guest__list grid-c">
+                  新規登録
+                <li>
+                <% end %>
+            </div>
+          <% end %>
           </div>
-        <% else %>
-        <div class="grid">
-          <%= link_to "ログイン", new_user_session_path, class: "top_btn" %>
-          <%= link_to "新規登録", new_user_registration_path, class: "top_btn" %>
         </div>
-        <% end %>
-        <div class="description">
-          <a>このアプリについて</a>
+      </header>
+      <%= yield %>
+      <footer class="footer">
+        <div>
+          <div class="descriotion">
+            <div class="description__title border-none">
+              <a>このアプリについて</a>
+            </div>
+          </div>
         </div>
-      </div>
-    </header>
-    <%= yield %>
+      </footer>
+    </div>
   </body>
 </html>

@@ -1,0 +1,38 @@
+$content: #d3d0e3;
+
+.show {
+  padding: 20px 180px;
+  position: relative;
+  &__content {
+    padding: 10px;
+    min-height: 300px;
+    border-radius: 30px;
+    border: ridge;
+    background-color: $content;
+    &__top {
+      display: flex;
+      justify-content: space-between;
+      &__name {
+        margin: 15px;
+        max-width: 400px;
+        text-align: center;
+      }
+      &__delete {
+        margin: 15px;
+        width: 100px;
+      }
+    }
+    &__main {
+      margin: 10px 30px;
+      height: 400px;
+    }
+  }
+  &__user {
+    position: absolute;
+    right: 100px;
+  }
+}
+
+.word-break {
+  word-break: break-all;
+}
