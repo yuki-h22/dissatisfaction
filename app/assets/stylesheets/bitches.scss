@@ -1,6 +1,7 @@
 $list: #00ac7c;
 $list_s: rgb(7, 156, 114);
 $content: #d3d0e3;
+$content_s: rgb(192, 184, 235);
 
 // <----    index.html.erb    ---->
 .top-content {
@@ -77,6 +78,18 @@ $content: #d3d0e3;
 }
 
 //    <------    _bitch.html.erb    ------>
+.content::after {
+  content: "";
+  display: block;
+  position: absolute;
+  z-index: -1;
+  bottom: 5px;
+  right: 0px;
+  height: 180px;
+  width: 99%;
+  background: rgba(0, 0, 0, 0.3);
+  box-shadow: 0 7px 5px rgba(0, 0, 0, 0.3);
+}
 
 .content {
   margin: 10px 20px;
@@ -84,8 +97,16 @@ $content: #d3d0e3;
   width: 200px;
   height: 200px;
   background-color: $content;
-  border-radius: 10%;
-  border: ridge;
+  position: relative;
+  background: linear-gradient(
+    to bottom,
+    $content 0%,
+    $content_s 0%,
+    $content_s 0.5%,
+    $content_s 22%,
+    $content 25%
+  );
+
   &__top {
     display: flex;
     position: relative;
@@ -95,11 +116,10 @@ $content: #d3d0e3;
     &__delete-btn {
       position: absolute;
       right: 10px;
-      &__text {
-        .delete {
-          border-style: none;
-          height: 20px;
-        }
+      font-size: 10px;
+      .delete {
+        border-style: none;
+        font-size: 10px;
       }
     }
   }
@@ -138,8 +158,4 @@ $content: #d3d0e3;
       }
     }
   }
-}
-
-.delete_btn {
-  width: 10px;
 }
