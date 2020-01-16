@@ -35,7 +35,6 @@ $head: #8083ff;
   margin-bottom: 70px;
   &__bar {
     display: flex;
-    // justify-content: space-around;
     &__title {
       width: 70%;
       text-align: center;
@@ -121,4 +120,8 @@ $head: #8083ff;
   width: 100%;
   &__title {
   }
+}
+
+.overflow {
+  overflow: auto;
 }
