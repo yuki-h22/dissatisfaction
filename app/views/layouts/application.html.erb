@@ -23,7 +23,7 @@
             <div class="wrap__in">
           <% if user_signed_in? %>
             <div class="header__bar__user grid-p">
-              <%= link_to user_path(current_user), class: "list-link" do %>
+              <%= link_to user_path(current_user), class: "list-link border-none" do %>
                 <div class="btn-trans">
                   <div class="header__bar__user__name grid-c">
                     <%= current_user.name%>
